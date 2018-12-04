@@ -5,7 +5,6 @@ import java.util.*;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.net.URLConnection;
-import java.text.DecimalFormat;
 
 import org.json.simple.JSONObject;
 import org.json.simple.JSONArray;
@@ -16,12 +15,14 @@ public class Extractor {
 	public static void main(String[] args) throws IOException {
 
 		Day[] StockData = new Day[1]; // Important object array that holds all stock data
-		DecimalFormat formatter = new DecimalFormat("#.####");
+		
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		
+		String enteredURL = "https://finance.yahoo.com/quote/%5EGSPC/history?period1=-630961200&period2=1543640400&interval=1d&filter=history&frequency=1d";
 
 		// Establish connection to Yahoo Finance
-		URL url = new URL("https://finance.yahoo.com/quote/CZR/history?p=CZR");
+		URL url = new URL(enteredURL);
 		URLConnection urlConn = url.openConnection();
-		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 
 		try {
 			br = new BufferedReader(new InputStreamReader(urlConn.getInputStream()));
@@ -70,7 +71,8 @@ public class Extractor {
 				System.out.println("volume=" + obj2.get("volume"));
 				System.out.println("");
 
-				StockData[i] = new Day(Long.parseLong(obj2.get("date").toString()),
+				StockData[i] = new Day(
+						Long.parseLong(obj2.get("date").toString()),
 						Double.parseDouble(obj2.get("open").toString()),
 						Double.parseDouble(obj2.get("high").toString()),
 						Double.parseDouble(obj2.get("low").toString()),
@@ -83,6 +85,5 @@ public class Extractor {
 			System.out.println("ERROR: " + pe);
 			return;
 		}
-
 	}
 }
