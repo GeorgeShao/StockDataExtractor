@@ -1,7 +1,7 @@
 # StockDataExtractor
 Java application that extracts historical stock data from Yahoo Finance.
 
-**LICENSE**
+**LICENSE**<br/>
 See LICENSE.txt for licensing details.
 
 ## Installation Instructions
