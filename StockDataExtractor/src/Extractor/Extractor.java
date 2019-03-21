@@ -15,10 +15,11 @@ public class Extractor {
 	public static void main(String[] args) throws IOException {
 
 		Day[] StockData; // Important object array that holds all stock data
-		
+
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-		
-		String enteredURL = "https://finance.yahoo.com/quote/%5EGSPC/history?period1=-630961200&period2=1543640400&interval=1d&filter=history&frequency=1d";
+
+		// Example URL: https://finance.yahoo.com/quote/%5EGSPC/history?period1=-630961200&period2=1543640400&interval=1d&filter=history&frequency=1d
+		String enteredURL = br.readLine();
 
 		// Establish connection to Yahoo Finance
 		URL url = new URL(enteredURL);
