@@ -14,7 +14,7 @@ import org.json.simple.parser.JSONParser;
 public class Extractor {
 	public static void main(String[] args) throws IOException {
 
-		Day[] StockData = new Day[1]; // Important object array that holds all stock data
+		Day[] StockData; // Important object array that holds all stock data
 		
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		
