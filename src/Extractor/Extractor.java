@@ -88,6 +88,6 @@ public class Extractor {
 			System.out.println("ERROR: " + pe);
 			return;
 		}
-		System.out.println(System.nanoTime() - startTime);
+		System.out.println((System.nanoTime() - startTime) + " nanoseconds");
 	}
 }
