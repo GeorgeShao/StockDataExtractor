@@ -21,6 +21,8 @@ public class Extractor {
 		// Example URL: https://finance.yahoo.com/quote/%5EGSPC/history?period1=-630961200&period2=1543640400&interval=1d&filter=history&frequency=1d
 		String enteredURL = br.readLine();
 
+		long startTime = System.nanoTime();
+
 		// Establish connection to Yahoo Finance
 		URL url = new URL(enteredURL);
 		URLConnection urlConn = url.openConnection();
@@ -86,5 +88,6 @@ public class Extractor {
 			System.out.println("ERROR: " + pe);
 			return;
 		}
+		System.out.println(System.nanoTime() - startTime);
 	}
 }
